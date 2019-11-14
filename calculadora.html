@@ -2,11 +2,135 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Calculadora</title>
+	<link rel="stylesheet" type="text/css" href="Estilos.css">
+	<script src="jquery-3.4.1.js"></script>
+	<script>
+			var cantidad = "";
+			signo_op = "";
+			calculo = false;
+			cant1 = 0;
+			cant2 = 0;
+			function agrega(num) {
+				cantidad += num;
+				$("#ingresar").val(cantidad);
+				if (calculo == false){
+					cant1 = parseFloat(cantidad);
+				}
+				else{
+					cant2 = parseFloat(cantidad);
+				}
+			}
+			function signo(signo) {
+				switch (signo) {
+					case "suma":
+						signo_op = "suma";
+						break;
+						case "resta":
+							signo_op = "resta";
+							break;
+							case "division":
+								signo_op = "division";
+								break;
+								case "producto":
+									signo_op = "producto";
+									break;
+				}
+				cantidad = "";
+				calculo = true;
+			}
+		function calcular() {
+				switch (signo_op) {
+					case "suma":
+						$.ajax({
+							url:'suma.php',
+							method:'POST',
+							data: {"cantidad1": cant1, "cantidad2": cant2, "suma":1}
+						}).done(function (calcular) {
+							$("#ingresar").val(calcular);
+						});
+						break;
+					case "resta":
+						$.ajax({
+							url:'resta.php',
+							method:'POST',
+							data: {"cantidad1": cant1, "cantidad2": cant2, "resta":1}
+						}).done(function (calcular) {
+							$("#ingresar").val(calcular);
+						});
+						break;
+					case "division":
+						$.ajax({
+							url:'division.php',
+							method:'POST',
+							data: {"cantidad1": cant1, "cantidad2": cant2, "division":1}
+						}).done(function (calcular) {
+							$("#ingresar").val(calcular);
+						});
+						break;
+					case "producto":
+						$.ajax({
+							url:'producto.php',
+							method:'POST',
+							data: {"cantidad1": cant1, "cantidad2": cant2, "producto":1}
+						}).done(function (calcular) {
+							$("#ingresar").val(calcular);
+						});
+						break;
+				}
+		}
+		</script>
+	<title>Calculadora Online</title>
+	<style>
+		body{
+			background-color: black;
+		}
+	</style>
 </head>
 <body>
-	<center>
-		<a href="#">Suma</a>
-	</center>
+	<p><a href="">CALCULADORA ONLINE</a></p>
+	alert("mensaje de alerta");
+	<input id="alerta" type="button" onclick="alert('Posicionate sobre el titulo :)')" value="Tienes un mensaje de alerta" />
+	<br></br>
+	<h2>Selecciona los numeros para operar</h2>
+	<table class="numeros">
+		<tr>
+			<td colspan="2"><input type="text" id="ingresar" class="textview" disabled placeholder="Selecciona los numeros" ></td>
+			<td rawspan="0"><input type="button" value="Calcular" id="result" class="btn btn-primary form-control" onclick="calcular()" ></td>
+		</tr>
+	</table>
+	<br></br>
+	<table class="numeross">
+		<tr>
+			<td><input type="button" value="1" class="btn btn-success form-control" onclick="agrega(1)"/></td>
+			<td><input type="button" value="2" class="btn btn-success form-control" onclick="agrega(2)"/></td>
+			<td><input type="button" value="3" class="btn btn-success form-control" onclick="agrega(3)"/></td>
+			<td><input type="button" value="4" class="btn btn-success form-control" onclick="agrega(4)"/></td>
+			<td><input type="button" value="5" class="btn btn-success form-control" onclick="agrega(5)"/></td>
+			<td><input type="button" value="6" class="btn btn-success form-control" onclick="agrega(6)"/></td>
+			<td><input type="button" value="7" class="btn btn-success form-control" onclick="agrega(7)"/></td>
+			<td><input type="button" value="8" class="btn btn-success form-control" onclick="agrega(8)"/></td>
+			<td><input type="button" value="9" class="btn btn-success form-control" onclick="agrega(9)"/></td>
+			<td colspan="2"><input id="cero" type="button" value="0" class="btn btn-success form-control" onclick="agrega('0')"></td>
+			<td colspan="1"><input type="button" value="." class="btn btn-success form-control" onclick="agrega('.')"></td>
+		</tr>
+	</table>
+	<br></br>
+	<h2>Selecciona la operacion que deseas realizar</h2>
+	<table class="operadores">
+			<tr >
+				<td><input id="ce" type="button" value="CE" class="btn btn-warning form-control" onclick="location.reload()"></td>
+				<td><input id="sum" type="button" value="Suma" class="btn btn-primary form-control" onclick="signo('suma')"></td>
+				<td><input id="rest" type="button" value="Resta" class="btn btn-primary form-control" onclick="signo('resta')"></td>
+				<td><input id="mul" type="button" value="Multiplicacion" class="btn btn-primary form-control" onclick="signo('producto')"></td>
+				<td><input id="div" type="button" value="Division" class="btn btn-primary form-control" onclick="signo('division')"></td>
+			</tr>
+	
+		</table>
+	<br></br>
+	<br></br>
+	<br></br>
+	<footer>
+			&copy; Erika De La Vega - Todos los derechos reservados
+		</footer>
 </body>
 </html>

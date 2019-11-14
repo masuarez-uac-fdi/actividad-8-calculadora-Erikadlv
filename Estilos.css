@@ -1,0 +1,174 @@
+p{
+	text-align: center;
+	font-size: 40px;
+	margin: 20px 0 20px 0;
+
+}
+a{
+	text-decoration: none;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	transition: all 0.5s;
+}
+p:nth-child(1) a{
+	color: #FFA07A ;
+	font-family: "Curier New";
+}
+p:nth-child(1) a:hover{
+	-webkit-animation: neon 1.5s ease-in-out infinite alternate;
+	-moz-animation: neon 1.5s ease-in-out infinite alternate;
+	animation: neon 1.5s ease-in-out infinite alternate;
+}
+p a:hover{
+	color: #FFF;
+}
+@-webkit-keyframes neon{
+	from {
+        text-shadow: 0 0 10px #fff,
+        0 0 20px  #fff,
+        0 0 30px  #fff,
+        0 0 40px  #ff8791,
+        0 0 70px  #ff8791,
+        0 0 80px  #ff8791,
+        0 0 100px #ff8791,
+        0 0 150px #ff8791;
+    }
+    to {
+        text-shadow: 0 0 5px #fff,
+        0 0 10px #fff,
+        0 0 15px #fff,
+        0 0 20px #ff8791,
+        0 0 35px #ff8791,
+        0 0 40px #ff8791,
+        0 0 50px #ff8791,
+        0 0 75px #ff8791;
+    }
+}
+@-moz-keyframes neon{
+	from {
+        text-shadow: 0 0 10px black,
+        0 0 20px  #fff,
+        0 0 30px  #fff,
+        0 0 40px  #ff8791,
+        0 0 70px  #ff8791,
+        0 0 80px  #ff8791,
+        0 0 100px #ff8791,
+        0 0 150px #ff8791;
+    }
+    to {
+        text-shadow: 0 0 5px black,
+        0 0 10px #fff,
+        0 0 15px #fff,
+        0 0 20px #ff8791,
+        0 0 35px #ff8791,
+        0 0 40px #ff8791,
+        0 0 50px #ff8791,
+        0 0 75px #ff8791;
+    }
+}
+@keyframes neon{
+	from {
+        text-shadow: 0 0 10px black,
+        0 0 20px  #fff,
+        0 0 30px  #fff,
+        0 0 40px  #ff8791,
+        0 0 70px  #ff8791,
+        0 0 80px  #ff8791,
+        0 0 100px #ff8791,
+        0 0 150px #ff8791;
+    }
+    to {
+        text-shadow: 0 0 5p #e83e3e,
+        0 0 10px #fff,
+        0 0 15px #fff,
+        0 0 20px #ff8791,
+        0 0 35px #ff8791,
+        0 0 40px #ff8791,
+        0 0 50px #ff8791,
+        0 0 75px #ff8791;
+    }
+}
+h2{
+	color:#ff697a;
+	font-size: 30px;
+	text-align: center;
+	font-family:Monaco;
+}
+.centrado{
+	text-align: center;
+}
+button{
+    background-color: indianred;
+	border-radius: 25px 25px 25px 25px;
+    color: white;
+    padding: 16px 32px;
+    font-size: 16px;
+    min-width: 21%;
+    text-decoration: none;
+    margin: 4px 2px;
+	cursor: pointer;
+}
+button:hover{
+	background-color: lightsalmon;
+}
+footer{
+	text-align: center;
+	color:salmon;
+}
+.numeros{
+	 position: relative;
+	 z-index: 11;
+	 left: 43%;
+	 top:10px;
+	 overflow: auto;
+	 visibility: visible;
+}
+.numeross{
+	position: relative;
+	z-index: 11;
+	left: 33%;
+	top:10px;
+	overflow: auto;
+	visibility: visible;
+}
+.operadores{
+	position: relative;
+	z-index: 11;
+	left: 35%;
+	top:10px;
+	overflow: auto;
+	visibility: visible;
+}
+.btn{
+	background: #f4adb1;
+	border-radius: 5px;
+	border: 2px solid #ea636b;
+	height: 50px;
+	width: 50px;
+	font-size: 25px;
+}
+.btn:hover{
+	color:#f4adb1;
+	background-color: #ffe8ea;
+}
+.botones{
+	height: 50px;
+	width: 1000px;
+}
+#ce, #sum, #rest{
+	width: 90px;
+}
+#mul{
+	width: 170px;
+}
+#div,#result{
+	width: 110px;
+}
+#alerta{
+	left: 36%;
+	top:10px;
+	border-radius: 5px;
+	border: 2px solid #ea636b;
+	background: #f4adb1;
+	position: relative;
+}
